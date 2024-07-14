@@ -5,7 +5,6 @@ import os
 from dotenv import load_dotenv, dotenv_values
 
 
-
 def upload_blob(bucket_name, destination_blob_name, file):
     """Uploads a file to the bucket."""
     # The ID of your GCS bucket
@@ -18,22 +17,10 @@ def upload_blob(bucket_name, destination_blob_name, file):
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(destination_blob_name)
-
-    # Optional: set a generation-match precondition to avoid potential race conditions
-    # and data corruptions. The request to upload is aborted if the object's
-    # generation number does not match your precondition. For a destination
-    # object that does not yet exist, set the if_generation_match precondition to 0.
-    # If the destination object already exists in your bucket, set instead a
-    # generation-match precondition using its generation number.
-    generation_match_precondition = 0
-
-    #blob.upload_from_filename(source_file_name, if_generation_match=generation_match_precondition)
+    
     blob.upload_from_file(file)
 
-    print(
-        f"File {destination_blob_name} uploaded to {bucket_name}."
-    )
-    
+    print(f"File {destination_blob_name} uploaded to {bucket_name}.")
     st.write("File:  ", destination_blob_name, "  uploaded.")
 
 
