@@ -15,8 +15,7 @@ source venv/bin/activate
    ``` gcloud auth application-default login ```
 5. Create .env file and set the following Environment Variables 
    ```
-   export BUCKET_NAME = <google-cloud-storage-bucket-name>
-
+         export BUCKET_NAME = <google-cloud-storage-bucket-name>
    ```
    
 | **Environment Variable** | **Description** |
