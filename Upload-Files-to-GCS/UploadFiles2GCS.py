@@ -27,7 +27,7 @@ def upload_blob(bucket_name, destination_blob_name, file):
 #####
 
 
-st.title('Upload Files to Google Cloud Storage')
+st.title('Upload Files to Google Cloud Storage using Streamlit')
 
 # load variables from .env file
 load_dotenv()
